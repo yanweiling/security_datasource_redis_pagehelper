@@ -1,5 +1,6 @@
 package com.ywl.study.springsecurity;
 
+import com.ywl.study.springsecurity.entity.DmCzry;
 import com.ywl.study.springsecurity.redis.RedisUtil;
 import com.ywl.study.springsecurity.util.GUIDGen;
 import lombok.extern.slf4j.Slf4j;
@@ -20,6 +21,10 @@ public class FirstTest {
     RedisTemplate redisTemplate;
     @Test
     public void test1(){
-        redisTemplate.opsForValue().set("redis_key", "redis_value");
+        DmCzry d=new DmCzry();
+        d.setCzry_dm("111");
+        d.setSwjg_mc("名称");
+        d.setXybz("中国测试");
+        redisTemplate.opsForValue().set("redis_key1",d);
     }
 }
