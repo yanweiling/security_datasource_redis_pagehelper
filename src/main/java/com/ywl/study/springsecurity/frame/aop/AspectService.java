@@ -27,14 +27,10 @@ public class AspectService {
                  log.info("获取"+AspectVo.MESSAGEQUEUE+"中信息，导入日志表中");
                  AspectVo aspectVo= JSONObject.parseObject(redisUtil.rPop(AspectVo.MESSAGEQUEUE),AspectVo.class);
                  log.info(aspectVo==null?"没有数据": "获得"+aspectVo.toString());
-                //{"className":"com.dcits.frame.security.dao.QxUserDao","cost":294,"ctime":1584600375763,"message":"","method":"findByName"}
-                 //{"className":"com.ywl.study.springsecurity.mapper.QxUserDao","cost":142,"ctime":1584600139705,"method":"findGnmkTree"}
                  if(aspectVo!=null){
                      aspectDao.insert(aspectVo);
                      log.info("插入成功");
                  }
-
-
              }
 
             }
