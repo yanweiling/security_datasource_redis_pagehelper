@@ -18,21 +18,15 @@ public class AspectService {
     @Autowired
     RedisUtil redisUtil;
     public void exeLogToDB(){
-        log.info("日志表记录....");
         Executors.newScheduledThreadPool(1).scheduleWithFixedDelay(new Runnable() {
             @Override
             public void run() {
-              log.info("任务。。。。");
              while(true){
-                 log.info("获取"+AspectVo.MESSAGEQUEUE+"中信息，导入日志表中");
                  AspectVo aspectVo= JSONObject.parseObject(redisUtil.rPop(AspectVo.MESSAGEQUEUE),AspectVo.class);
-                 log.info(aspectVo==null?"没有数据": "获得"+aspectVo.toString());
                  if(aspectVo!=null){
                      aspectDao.insert(aspectVo);
-                     log.info("插入成功");
                  }
              }
-
             }
         },0,10, TimeUnit.SECONDS);
     }
