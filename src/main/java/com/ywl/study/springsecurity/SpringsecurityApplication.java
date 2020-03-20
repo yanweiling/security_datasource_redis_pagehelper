@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Import;
 /**
  * 因为数据源是自己生成的，所以要去掉原先springboot启动时候自动装配的数据源配置。
  */
-//@MapperScan("com.ywl.study.springsecurity.mapper")
+//@MapperScan("com.ywl.study.springsecurity.mapper")  如果加上@Mapper，可以不用@MapperScan
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 @Import({DynamicDataSourceConfig.class})
 @EnableCaching
