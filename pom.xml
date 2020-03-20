@@ -25,6 +25,8 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
+        <!--如果springboot引入springboot starter，就会启用logback日志框架，
+        如果要用log4j2的方式的话，需要将logback日志框架删除，并且引入log4j2的日志框架-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -115,6 +117,11 @@
             <artifactId>pagehelper-spring-boot-starter</artifactId>
             <version>1.2.5</version>
         </dependency>
+        <dependency>
+            <groupId>org.codehaus.janino</groupId>
+            <artifactId>janino</artifactId>
+            <version>3.0.6</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -124,5 +131,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

@@ -17,3 +17,8 @@ OxmSerializer ：
 用于XML序列化
 
 StringRedisSerializer：序列化String类型的key和value。实际上是String和byte数组之间的转换
+
+
+
+
+l
